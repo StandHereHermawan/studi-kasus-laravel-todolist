@@ -89,6 +89,7 @@
                         <tbody>
                             @foreach ($todolist as $todo)
                             <tr>
+                                <!-- Keburu ke commit sebelumnya yang bagian sini /start -->
                                 <th scope="row">{{ $todo["id"] }}</th>
                                 <td>{{ $todo["todo"] }}</td>
                                 <td>
@@ -104,6 +105,7 @@
                                         </button>
                                     </form>
                                 </td>
+                                <!-- Keburu ke commit sebelumnya yang bagian sini /end -->
                             </tr>
                             @endforeach
                         </tbody>
