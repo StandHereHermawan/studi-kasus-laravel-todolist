@@ -82,4 +82,11 @@ class UserControllerTest extends TestCase
         ])->assertRedirect("/")
             ->assertSessionHas("user", "andrew");
     }
+
+    public function testLogoutPageForGuest()
+    {
+        $this->withSession([])
+            ->post("/logout")
+            ->assertRedirect("/");
+    }
 }
