@@ -54,4 +54,13 @@ class UserControllerTest extends TestCase
             ->assertSeeText("Sign")
             ->assertSeeText("In");
     }
+
+    public function testLogoutSuccess()
+    {
+        $this->withSession([
+            "user" => "andrew"
+        ])->post("/logout")
+            ->assertRedirect("/")
+            ->assertSessionMissing("user");
+    }
 }
