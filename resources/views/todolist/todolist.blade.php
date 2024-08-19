@@ -18,7 +18,6 @@
 
     <body>
         <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-
             @if(isset($error))
             <div class="row">
                 <div class="alert alert-danger" role="alert">
@@ -53,6 +52,7 @@
                         method="post"
                         action="/todolist"
                     >
+                        @csrf
                         <div class="form-floating mb-3">
                             <input
                                 type="text"
@@ -92,12 +92,17 @@
                                 <th scope="row">{{ $todo["id"] }}</th>
                                 <td>{{ $todo["todo"] }}</td>
                                 <td>
-                                    <button
-                                        class="w-100 btn btn-lg btn-danger"
-                                        type="submit"
-                                    >
-                                        Remove
-                                    </button>
+                                    <form
+                                        action="/todolist/{{$todo['id']}}/delete"
+                                        method="post">
+                                        @csrf
+                                        <button
+                                            class="w-100 btn btn-lg btn-danger"
+                                            type="submit"
+                                        >
+                                            Remove
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
